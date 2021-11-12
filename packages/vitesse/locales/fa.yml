@@ -1,0 +1,72 @@
+menu:
+  home: خانه
+  products: محصولات
+  projects: پروژه ها
+  services: خدمات
+  about: درباره شرکت
+  contact: ارتباط با شرکت
+  button: تماس
+overlay-card:
+  card01: Left
+  card02: Women
+  card03: Desk
+featured-products:
+  titel: محصولات
+  see-more: مشاهده تمامی محصولات
+statistic:
+  title: Master Cleanse Reliac Heirloom
+  subtitle: Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.
+  clients: مشتری
+  clients-no: '1254'
+  projects: پروژه
+  projects-no: '142'
+  products: محصول
+  products-no: '431'
+  personel: پرسنل
+  personel-no: '12'
+Projects:
+  title: آخرین پروژه ها
+  subtitle: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.
+Perks:
+  perk01: perk01
+  perk02: perk02
+  perk03: perk03
+  perk04: perk04
+hero:
+  title: شرکت سایه بام
+  subtitle: The new arrivals have, well, newly arrived. Check out the latest options from our summer small-batch release while they're still in stock.
+  button: Go
+button:
+  about: About
+  back: Back
+  go: GO
+  home: خانه
+  toggle_dark: Toggle dark mode
+  toggle_langs: Change languages
+labels:
+  address: آدرس
+  email: ایمیل
+  phone: تلفن
+  mobile: موبایل
+footer:
+  title: شرکت سایه بام
+  subtitle: The new arrivals have, well, newly arrived. Check out the latest options from our summer small-batch release while they're still in stock.
+  in-touch-title: ارتباط با ما
+  signup-title: Sign up for our newsletter
+  signup-subtitle: The latest deals and savings, sent to your inbox weekly.
+  signup: Sign up
+  copyright: طراحی توسط حسین موذنی
+contact-form:
+  title: ارسال پیام
+  First-name: نام
+  last-name: نام خانوادگی
+  subject: موضوع
+  message: متن پیام
+  submit: ارسال
+intro:
+  desc: Opinionated Vite Starter Template
+  dynamic-route: Demo of dynamic route
+  hi: Hi, {name}!
+  aka: Also known as
+  whats-your-name: What's your name?
+not-found: Not found
