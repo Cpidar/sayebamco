@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sections_stats",
+  "info": {
+    "name": "Stats",
+    "icon": "chart-bar",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Customer": {
+      "type": "biginteger"
+    },
+    "Projects": {
+      "type": "biginteger"
+    },
+    "Products": {
+      "type": "biginteger"
+    },
+    "Personels": {
+      "type": "biginteger"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}
