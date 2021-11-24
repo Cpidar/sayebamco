@@ -4,32 +4,7 @@ import Logo from '../assets/images/workflow-mark.svg'
 const { t } = useI18n()
 const address = "اصفهان، دهاقان"
 const phones = ['(31) 5333 3861', '(31) 5333 3861', '(913) 920 1435']
-const footerNavigation = {
-  products: [
-    { name: 'Bags', href: '#' },
-    { name: 'Tees', href: '#' },
-    { name: 'Objects', href: '#' },
-    { name: 'Home Goods', href: '#' },
-    { name: 'Accessories', href: '#' },
-  ],
-  company: [
-    { name: 'Who we are', href: '#' },
-    { name: 'Sustainability', href: '#' },
-    { name: 'Press', href: '#' },
-    { name: 'Careers', href: '#' },
-    { name: 'Terms & Conditions', href: '#' },
-    { name: 'Privacy', href: '#' },
-  ],
-  customerService: [
-    { name: 'Contact', href: '#' },
-    { name: 'Shipping', href: '#' },
-    { name: 'Returns', href: '#' },
-    { name: 'Warranty', href: '#' },
-    { name: 'Secure Payments', href: '#' },
-    { name: 'FAQ', href: '#' },
-    { name: 'Find a store', href: '#' },
-  ],
-}
+
 </script>
 
 <template>
@@ -47,9 +22,9 @@ const footerNavigation = {
               <span
                 class="block uppercase text-blueGray-500 text-sm font-semibold mb-2"
               >{{t('footer.in-touch-title')}}</span>
-              <h6 class="text-md font-semibold mt-4">{{ t('footer.address') }}</h6>
+              <h6 class="text-md font-semibold mt-4">{{ t('labels.address') }}</h6>
               <p class="text-sm">{{ address }}</p>
-              <h6 class="text-md font-semibold mt-4">{{ t('footer.phone') }}</h6>
+              <h6 class="text-md font-semibold mt-4">{{ t('labels.phone') }}</h6>
               <p v-for="p of phones" :key="p" class="text-sm">{{ p }}</p>
               <div class="mt-6 lg:mb-0 mb-6">
                 <button

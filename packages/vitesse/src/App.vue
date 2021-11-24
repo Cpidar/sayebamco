@@ -5,6 +5,7 @@
 import { take, map } from 'rxjs/operators';
 import { ref$ } from './logic/observable-to-ref';
 import { fetchGlobalInfo } from './service/products';
+import Whatsapp from './components/whatsapp.vue';
 
 // they will be rendered correctly in the html results with vite-ssg
 const { locale } = useI18n()
@@ -24,4 +25,5 @@ useHead(global)
 
 <template>
   <router-view />
+  <Whatsapp />
 </template>

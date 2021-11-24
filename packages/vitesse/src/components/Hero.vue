@@ -23,7 +23,9 @@
           <div class="relative py-32">
             <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">{{t('hero.title')}}</h1>
             <div class="mt-4 sm:mt-6">
-              <a href="#" class="inline-block bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">Shop Collection</a>
+              <router-link to="#trendingProducts">
+              <span  class="inline-block bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">{{t('hero.button')}}</span>
+              </router-link>
             </div>
           </div>
         </div>

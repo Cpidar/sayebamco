@@ -12,6 +12,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import ViteRadar from 'vite-plugin-radar'
+import viteSSR from 'vite-ssr/plugin'
 
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
@@ -23,6 +24,8 @@ export default defineConfig({
     },
   },
   plugins: [
+    viteSSR(),
+
     Vue({
       include: [/\.vue$/, /\.md$/],
     }),
@@ -157,10 +160,10 @@ export default defineConfig({
 
   
   // https://github.com/antfu/vite-ssg
-  ssgOptions: {
-    script: 'async',
-    formatting: 'minify',
-  },
+  // ssgOptions: {
+  //   script: 'async',
+  //   formatting: 'minify',
+  // },
 
   optimizeDeps: {
     include: [

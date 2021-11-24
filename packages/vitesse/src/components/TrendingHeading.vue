@@ -13,7 +13,7 @@ const props = defineProps<{ products: ProductModel[] }>()
 
 </script>
 <template>
-  <section aria-labelledby="trending-heading">
+  <section aria-labelledby="trending-heading" id="trendingProducts">
     <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 sm:py-32 lg:pt-32 lg:px-8">
       <div class="md:flex md:items-center md:justify-between">
         <h2

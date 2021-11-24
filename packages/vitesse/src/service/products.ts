@@ -5,11 +5,11 @@ import { Observable, pluck, shareReplay, Subscriber, switchMap } from 'rxjs'
 
 export const STRAPI_URL = import.meta.env.VITE_STRAPI_SERVER
 
-export const initializeMAnde = () => {
+export const initializeMande = () => {
     if (import.meta.env.SSR) {
         const BASE_URL = process.env.NODE_ENV !== 'production'
             ? 'http://localhost:3500'
-            : 'http://sayebamco.com'
+            : 'http://localhost:3500'
 
         return mande(BASE_URL, {}, require('node-fetch'))
     } else {
@@ -18,7 +18,7 @@ export const initializeMAnde = () => {
 }
 
 export const api$ = (new Observable((subscriber: Subscriber<MandeInstance>) =>
-    subscriber.next(initializeMAnde())
+    subscriber.next(initializeMande())
 )).pipe(shareReplay())
 
 interface Seo {

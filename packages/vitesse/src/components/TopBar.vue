@@ -22,9 +22,8 @@ const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
               </div>
             </form>
 
-            <div class="flex items-center space-x-6">
-              <a href="#" class="text-sm font-medium text-white hover:text-gray-100">Sign in</a>
-              <a href="#" class="text-sm font-medium text-white hover:text-gray-100">Create an account</a>
+            <div class="flex items-center">
+              <a href="#" class="text-sm font-medium text-white hover:text-gray-100">09139201435 - 03155412283</a>
             </div>
           </div>
         </div>

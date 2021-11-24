@@ -7,7 +7,7 @@ import {
   TransitionChild,
   TransitionRoot,
 } from '@headlessui/vue'
-import { MenuIcon, QuestionMarkCircleIcon, SearchIcon, ShoppingBagIcon, XIcon } from '@heroicons/vue/outline'
+import { MenuIcon, SearchIcon, XIcon } from '@heroicons/vue/outline'
 
 const { t } = useI18n()
 const navigation = {
@@ -104,7 +104,9 @@ const open = ref(false)
             <!-- Links -->
             <div class="border-t border-gray-200 py-6 px-4 space-y-6">
               <div v-for="page in navigation.pages" :key="page.name" class="flow-root">
-                <a :href="page.href" class="-m-2 p-2 block font-medium text-gray-900">{{ page.name }}</a>
+              <router-link :to="page.href" >
+                <span :href="page.href" class="-m-2 p-2 block font-medium text-gray-900">{{ page.name }}</span>
+                </router-link>
               </div>
             </div>
 
@@ -177,27 +179,9 @@ const open = ref(false)
               </a>
 
               <div class="flex-1 flex items-center justify-end">
-                <a href="#" class="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">
-                  Search
-                </a>
-
-                <div class="flex items-center ltr:lg:ml-8 rtl:lg:mr-8">
-                  <!-- Help -->
-                  <a href="#" class="p-2 text-gray-400 hover:text-gray-500 lg:hidden">
-                    <span class="sr-only">Help</span>
-                    <QuestionMarkCircleIcon class="w-6 h-6" aria-hidden="true" />
-                  </a>
-                  <a href="#" class="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">Help</a>
-
-                  <!-- Cart -->
-                  <div class="ltr:ml-4 rtl:mr-4 flow-root ltr:lg:ml-8 rtl:lg:mr-8">
-                    <a href="#" class="group -m-2 p-2 flex items-center">
-                      <ShoppingBagIcon class="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500" aria-hidden="true" />
-                      <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
-                      <span class="sr-only">items in cart, view bag</span>
-                    </a>
-                  </div>
-                </div>
+                    <button type="button" class="inline-flex items-center px-3.5 py-2 border border-transparent text-sm leading-4 font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+      دریافت کاتالوگ
+    </button>
               </div>
             </div>
           </div>

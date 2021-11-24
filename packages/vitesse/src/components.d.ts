@@ -29,6 +29,7 @@ declare module 'vue' {
     StatisticSection: typeof import('./components/statistic-section.vue')['default']
     TopBar: typeof import('./components/TopBar.vue')['default']
     TrendingHeading: typeof import('./components/TrendingHeading.vue')['default']
+    Whatsapp: typeof import('./components/whatsapp.vue')['default']
   }
 }
 
