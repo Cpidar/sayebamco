@@ -1,24 +1,27 @@
 <script setup lang="ts">
+import { STRAPI_URL } from '~/service/products';
+
+const props = defineProps<{ data: any }>()
 const { t } = useI18n()
 
 const items = [
   {
-    title: t('statistic.clients'),
+    label: t('statistic.clients'),
     count: t('statistic.clients-no'),
     icon: ''
   },
     {
-    title: t('statistic.projects'),
+    label: t('statistic.projects'),
     count: t('statistic.projects-no'),
     icon: ''
   },
     {
-    title: t('statistic.products'),
+    label: t('statistic.products'),
     count: t('statistic.products-no'),
     icon: ''
   },
     {
-    title: t('statistic.personel'),
+    label: t('statistic.personel'),
     count: t('statistic.personel-no'),
     icon: ''
   }
@@ -28,19 +31,16 @@ const items = [
 <template>
 <section class="bg-gray-50 text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-col text-center w-full mb-20">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{{t('statistic.title')}}</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">{{t('statistic.subtitle')}}</p>
+    <div v-if="props.data" class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{{props.data.title}}</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">{{props.data.description}}</p>
     </div>
     <div class="flex flex-wrap -m-4 text-center">
-      <div v-for="item of items" class="p-4 md:w-1/4 sm:w-1/2 w-full">
-        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-indigo-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
-            <path d="M8 17l4 4 4-4m-4-5v9"></path>
-            <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
-          </svg>
+      <div v-for="item of props.data ? props.data.items : items" class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class="px-4 py-6 rounded-lg">
+          <img :src="STRAPI_URL + item.icon.url" />
           <h2 class="title-font font-medium text-3xl text-gray-900">{{item.count}}</h2>
-          <p class="leading-relaxed">{{item.title}}</p>
+          <p class="leading-relaxed">{{item.label}}</p>
         </div>
       </div>
       <!-- <div class="p-4 md:w-1/4 sm:w-1/2 w-full">

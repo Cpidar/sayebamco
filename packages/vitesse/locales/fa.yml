@@ -13,28 +13,17 @@ overlay-card:
 featured-products:
   titel: محصولات
   see-more: مشاهده تمامی محصولات
-statistic:
-  title: Master Cleanse Reliac Heirloom
-  subtitle: Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.
-  clients: مشتری
-  clients-no: '1254'
-  projects: پروژه
-  projects-no: '142'
-  products: محصول
-  products-no: '431'
-  personel: پرسنل
-  personel-no: '12'
 Projects:
   title: آخرین پروژه ها
-  subtitle: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.
+  subtitle: این شرکت بر اساس نیاز ها و الزامات اقلیمی مورد نیاز هر پروژه، ابتدا سازه ای منحصر به فرد را برای اقلیم و منطقه مورد نظر طراحی نموده و سپس کلیه قطعات مورد نیاز را در کارگاه خود تولید و در کتاه ترین زمان ممکن نسبت به نصب سازه گلخانه و کلیه تجهیزات آن اقدام می نماید . 
 Perks:
   perk01: perk01
   perk02: perk02
   perk03: perk03
   perk04: perk04
 hero:
-  title: شرکت سایه بام
-  subtitle: The new arrivals have, well, newly arrived. Check out the latest options from our summer small-batch release while they're still in stock.
+  title: شرکت سایه بام سبز زاینده رود
+  subtitle: طراح و مجری پروژه های ساخت گلخانه مدرن
   button: نمایش محصولات
 button:
   about: About
@@ -49,8 +38,8 @@ labels:
   phone: تلفن
   mobile: موبایل
 footer:
-  title: شرکت سایه بام
-  subtitle: The new arrivals have, well, newly arrived. Check out the latest options from our summer small-batch release while they're still in stock.
+  title: شرکت سایه بام سبز زاینده رود
+  subtitle: با حدود یک دهه فعالیت در زمینه محاسبه ، طراحی و اجرای گلخانه های مدرن و با بهره گیری از پرسنل خبره و امکانات مکفی آمادگی ارائه خدمات به کارفرمایان محترم را دارد . همکاری با مراکز آموزشی تحقیقاتی و دانشگاه های کشور و طراحی و ساخت چندین تیپ مختلف از مدرن ترین و بروز ترین گلخانه های تحقیقاتی آموزشی دانشگاه ها و گلخانه های مدرن تجاری نشان از تخصص و توان فنی اجرایی بالای شرکت سایه بام سبز زاینده رود می باشد
   in-touch-title: ارتباط با ما
   signup-title: Sign up for our newsletter
   signup-subtitle: The latest deals and savings, sent to your inbox weekly.

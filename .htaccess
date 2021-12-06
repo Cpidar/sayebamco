@@ -1,0 +1,7 @@
+RewriteEngine On
+DirectoryIndex disabled 
+RewriteRule ^/?api/(.*)$ http://sayebamco.com:3500/$1 [L,P]
+RewriteRule ^/?dashboard/(.*)$ http://sayebamco.com:3500/dashboard/$1 [L,P]
+RewriteRule ^(.*)$ http://localhost:3333/$1 [L,P]
+# ProxyPassReverse / http://localhost:3333/
+

@@ -2,15 +2,16 @@
 // https://github.com/vueuse/head
 // you can use this to manipulate the document head in any components,
 
-import { take, map } from 'rxjs/operators';
+import { take, map, shareReplay, pluck } from 'rxjs/operators';
 import { ref$ } from './logic/observable-to-ref';
-import { fetchGlobalInfo } from './service/products';
+import { fetchGlobalInfo, STRAPI_URL } from './service/products';
 import Whatsapp from './components/whatsapp.vue';
 
 // they will be rendered correctly in the html results with vite-ssg
 const { locale } = useI18n()
 locale.value = 'fa'
-const global = ref$(fetchGlobalInfo.pipe(take(1), map(global => ({
+const global$ = fetchGlobalInfo.pipe(take(1), shareReplay())
+const meta = ref$(global$.pipe(map(global => ({
   title: global.siteName,
   meta: [
     {
@@ -18,12 +19,21 @@ const global = ref$(fetchGlobalInfo.pipe(take(1), map(global => ({
       description: global.defaultSeo ? global.defaultSeo.metaDescription : ''
     }
   ]
-}))
-), {})
-useHead(global)
+}))), {})
+const whatsapp = ref$(global$.pipe(pluck('whatsapp'), map(v => v.map(w => ({
+  app: 'whatsapp',
+  name: w.name,
+  label: w.label,
+  number: w.number,
+  avatar: {
+    src: STRAPI_URL + w.avatar.url,
+    alt: w.avatar.alternativeText
+  }
+})))))
+useHead(meta)
 </script>
 
 <template>
   <router-view />
-  <Whatsapp />
+  <Whatsapp :attendants="whatsapp"/>
 </template>

@@ -1,6 +1,7 @@
 import { h, onMounted, onUpdated, ref } from 'vue';
 
 import MarkdownIt from 'markdown-it';
+import { STRAPI_URL } from '~/service/products';
 
 
 const props = {
@@ -65,7 +66,13 @@ const props = {
 export default {
   name: 'markdown-it',
   props,
+  computed: {
+  },
   setup(props: any) {
+    const addPrefix = (string: string) => {
+      const pattern = /\/uploads\//g
+      return string.replace(pattern, STRAPI_URL+"/uploads/")
+    }
     const md = ref();
     const renderMarkdown = () => {
       let markdown = new MarkdownIt()
@@ -79,7 +86,7 @@ export default {
           xhtmlOut: props.xhtmlOut
         });
 
-      md.value = markdown.render(props.source);
+      md.value = markdown.render(addPrefix(props.source));
     };
 
     onMounted(() => renderMarkdown());

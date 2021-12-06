@@ -11,4 +11,10 @@
   "files.associations": {
     "*.css": "postcss",
   },
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "css.validate": false,
 }

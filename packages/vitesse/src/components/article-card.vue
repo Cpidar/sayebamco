@@ -12,8 +12,8 @@ const props = defineProps<{ article: Article }>()
             <div class="max-h-140 overflow-hidden">
                 <img
                     class="w-full h-auto"
-                    :src="STRAPI_URL + props.article.image.url"
-                    :alt="props.article.image.alternativeText"
+                    :src="STRAPI_URL + props.article.image[0].url"
+                    :alt="props.article.image[0].alternativeText"
                 />
             </div>
             <div class="p-7 my-auto pb-12">

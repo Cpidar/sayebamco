@@ -12,20 +12,20 @@ const homepageInfo = ref$(fetchHomePageInfo.pipe(take(1)), {})
 const featuredArticles = ref$(fetchFeaturedArticles(3).pipe(take(1), finalize(() => isLoading.value = false)), [] as Article[])
 const projects = ref$(fetchProjects(1, 3).pipe(take(1)), [] as Article[])
 
-</script>
+</script> 
 
 <template>
   <!-- Hero section -->
   <div class="relative">
-    <hero />
+    <hero :hero="homepageInfo.hero" />
     <loading v-if="isLoading" />
     <collection :items="featuredArticles" />
   </div>
   <!-- <category-preview /> -->
   <trending-heading :products="trendingProducts" />
-  <statistic-section />
+  <statistic-section :data="homepageInfo.Statistics"/>
   <blog-section :items="projects" />
-  <perk-headings />
+  <perk-headings :perks="homepageInfo.perks" />
   <!-- <c-t-a01 /> -->
 </template>
 

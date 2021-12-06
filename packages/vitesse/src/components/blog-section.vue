@@ -8,7 +8,7 @@ const props = defineProps<{ items: Article[] }>()
 <template>
 <div class="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
     <div class="absolute inset-0">
-      <div class="bg-white h-1/3 sm:h-2/3"></div>
+      <div class="bg-white h-full"></div>
     </div>
     <div class="relative max-w-7xl mx-auto">
       <div class="text-center">
@@ -23,7 +23,7 @@ const props = defineProps<{ items: Article[] }>()
         
           <div v-for="item of props.items" :key="item.slug" class="flex flex-col rounded-lg shadow-lg overflow-hidden">
             <div class="flex-shrink-0">
-              <img class="h-48 w-full object-cover" :src="STRAPI_URL + item.image.url" :alt="item.image.alternativeText">
+              <img class="h-48 w-full object-cover" :src="STRAPI_URL + item.image[0].url" :alt="item.image[0].alternativeText">
             </div>
             <div class="flex-1 bg-white p-6 flex flex-col justify-between">
               <div class="flex-1">

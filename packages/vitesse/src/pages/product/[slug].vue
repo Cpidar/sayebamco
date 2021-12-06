@@ -70,12 +70,12 @@ let product = ref$(fetchProductBySlug(props.slug).pipe(
             <button
               type="button"
               class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
-            >Pay {{ product.price }}</button>
+            >{{ product.price }} ریال</button>
             <!-- <button type="button" class="w-full bg-indigo-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Preview</button> -->
           </div>
 
           <div class="border-t border-gray-200 mt-10 pt-10">
-            <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
+            <h3 class="text-sm font-medium text-gray-900">مشخصات</h3>
             <div class="mt-4 prose prose-sm text-gray-500">
               <ul role="list">
                 <li

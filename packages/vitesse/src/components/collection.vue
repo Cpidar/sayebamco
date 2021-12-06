@@ -26,7 +26,7 @@ const props = defineProps<{ items: Article[] }>()
             >
               <img
                 v-if="item.image"
-                :src="STRAPI_URL + item.image.url"
+                :src="STRAPI_URL + item.image[0].url"
                 alt="Woman wearing a comfortable cotton t-shirt."
                 class="w-full h-full object-center object-cover"
               />

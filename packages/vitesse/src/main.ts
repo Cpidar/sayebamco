@@ -50,7 +50,7 @@ export default viteSSR(
     app.use(head)
     app.use(VueSocialChat)
 
-    app.component(ClientOnly.name, ClientOnly)
+    // app.component(ClientOnly.name, ClientOnly)
 
     // fetchProductsSortedByID(1, 4).pipe(take(1)).subscribe(v => initialState.trendingProducts = v)
     // fetchFeaturedArticles(3).pipe(take(1)).subscribe( v => initialState.featuredArticles = v)
