@@ -7,23 +7,16 @@
   },
   "options": {},
   "attributes": {
-    "Customer": {
-      "type": "biginteger"
-    },
-    "Projects": {
-      "type": "biginteger"
-    },
-    "Products": {
-      "type": "biginteger"
-    },
-    "Personels": {
-      "type": "biginteger"
-    },
     "title": {
       "type": "string"
     },
     "description": {
       "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.stat-items"
     }
   }
 }

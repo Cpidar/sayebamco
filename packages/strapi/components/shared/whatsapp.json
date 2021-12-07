@@ -1,17 +1,22 @@
 {
-  "collectionName": "components_decoration_heroes",
+  "collectionName": "components_shared_whatsapps",
   "info": {
-    "name": "Hero",
-    "icon": "address-card",
+    "name": "whatsapp",
+    "icon": "comment",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "name": {
+      "type": "string"
     },
-    "image": {
+    "label": {
+      "type": "string"
+    },
+    "number": {
+      "type": "biginteger"
+    },
+    "avatar": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -23,7 +28,7 @@
       "required": false,
       "pluginOptions": {}
     },
-    "subtitle": {
+    "link": {
       "type": "string"
     }
   }

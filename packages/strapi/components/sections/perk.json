@@ -1,17 +1,15 @@
 {
-  "collectionName": "components_decoration_heroes",
+  "collectionName": "components_sections_perks",
   "info": {
-    "name": "Hero",
-    "icon": "address-card",
-    "description": ""
+    "name": "perk",
+    "icon": "ad"
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
-    "image": {
+    "icon": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -22,9 +20,6 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
-    },
-    "subtitle": {
-      "type": "string"
     }
   }
 }

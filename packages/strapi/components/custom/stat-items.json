@@ -1,17 +1,19 @@
 {
-  "collectionName": "components_decoration_heroes",
+  "collectionName": "components_custom_stat_items",
   "info": {
-    "name": "Hero",
-    "icon": "address-card",
+    "name": "stat_items",
+    "icon": "info",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "label": {
+      "type": "string"
     },
-    "image": {
+    "count": {
+      "type": "integer"
+    },
+    "icon": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -22,9 +24,6 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
-    },
-    "subtitle": {
-      "type": "string"
     }
   }
 }

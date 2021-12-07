@@ -26,6 +26,11 @@
       "type": "component",
       "repeatable": false,
       "component": "sections.stats"
+    },
+    "perks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.perk"
     }
   }
 }
