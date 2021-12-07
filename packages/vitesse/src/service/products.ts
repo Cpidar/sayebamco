@@ -8,8 +8,8 @@ export const STRAPI_URL = import.meta.env.VITE_STRAPI_SERVER
 export const initializeMande = () => {
     if (import.meta.env.SSR) {
         const BASE_URL = process.env.NODE_ENV !== 'production'
-            ? 'http://sayebamco.com:3500'
-            : 'http://sayebamco.com:3500'
+            ? 'http://sayebamco.com/api'
+            : 'http://sayebamco.com/api'
 
         return mande(BASE_URL, {}, require('node-fetch'))
     } else {
