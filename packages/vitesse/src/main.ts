@@ -15,10 +15,11 @@ import './styles/main.css'
 import 'virtual:windi-utilities.css'
 // windicss devtools support (dev only)
 import 'virtual:windi-devtools'
-import { api$ } from './service/products'
+import { api$, fetchFeaturedArticles, fetchGlobalInfo, fetchHomePageInfo, fetchProductsSortedByID, fetchProjects } from './service/products'
 import { RouterOptions } from 'vue-router'
 import VueSocialChat from 'vue-social-chat'
 import 'vue-social-chat/dist/style.css'
+import { take } from 'rxjs/operators'
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -26,17 +27,17 @@ const router: RouterOptions = {
   routes,
   // history: createWebHashHistory(),
   scrollBehavior(to, from) {
-    if(to.hash) {
+    if (to.hash) {
       return {
         el: to.hash,
         behavior: 'smooth'
       }
     } else {
-    return {top: 0}
+      return { top: 0 }
+    }
   }
 }
-}
-// https://github.com/antfu/vite-ssg
+
 export default viteSSR(
   App,
   router,
@@ -45,16 +46,35 @@ export default viteSSR(
     // install all modules under `modules/`
     Object.values(import.meta.globEager('./modules/*.ts')).map(i => i.install?.(ctx))
 
-    const { app, url, router, isClient, initialState, initialRoute } = ctx
+    const { app, initialState, router, url } = ctx
     const head = createHead()
     app.use(head)
     app.use(VueSocialChat)
 
-    // app.component(ClientOnly.name, ClientOnly)
+    // router.beforeEach(async (to, from, next) => {
+    //   if (!!to.meta.state && Object.keys(to.meta.state).length > 0) {
+    //     // This route has state already (from server) so it can be reused.
+    //     // State is always empty in SPA development, but present in SSR development.
+    //     return next()
+    //   }
 
-    // fetchProductsSortedByID(1, 4).pipe(take(1)).subscribe(v => initialState.trendingProducts = v)
-    // fetchFeaturedArticles(3).pipe(take(1)).subscribe( v => initialState.featuredArticles = v)
+    //   try {
+    //   } catch {
+        
+    //   }
+      
+    //   next()
+      
+    // })
+    app.component(ClientOnly.name, ClientOnly)
+    // fetchProductsSortedByID(0, 4).pipe(take(1)).subscribe(v => initialState.trendingProducts = v)
+    // fetchFeaturedArticles(3).pipe(take(1)).subscribe(v => initialState.featuredArticles = v)
     // fetchHomePageInfo.pipe(take(1)).subscribe(v => initialState.homePage = v)
-    // fetchGlobalInfo.pipe(take(1)).subscribe(v => initialState.globas = v)
-  },
-)
+    // fetchGlobalInfo.pipe(take(1)).subscribe(v => initialState.globals = v)
+    // fetchProjects(1, 3).pipe(take(1)).subscribe(v => initialState.recentProjects = v)
+      if (import.meta.env.SSR) {
+      } else {
+        console.log(initialState)
+      }
+      return { head }
+    })

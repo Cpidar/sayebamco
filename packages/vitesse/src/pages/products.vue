@@ -40,7 +40,7 @@ import { fetchProductsSortedByID, ProductModel } from '~/service/products';
 
 const isLoading = ref(true)
 // const props = defineProps<{ products: ProductModel[] }>()
-const products = ref$(fetchProductsSortedByID(1, 12).pipe(
+const products = ref$(fetchProductsSortedByID(0, 12).pipe(
   take(1),
   finalize(() => isLoading.value = false)
 ), [] as ProductModel[])

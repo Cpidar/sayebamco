@@ -3,7 +3,7 @@
         <div aria-hidden="true" class="hidden absolute inset-0 sm:flex sm:flex-col">
           <div class="flex-1 relative w-full bg-gray-800">
             <div v-if="props.hero" class="absolute inset-0 overflow-hidden">
-              <img :src="STRAPI_URL + props.hero.image.url" />
+              <img :src="STRAPI_URL + props.hero.image.url" class="object-cover object-center" />
             </div>
             <div class="absolute inset-0 bg-gray-900 opacity-50" />
           </div>
@@ -15,7 +15,7 @@
           <div aria-hidden="true" class="absolute inset-0 flex flex-col sm:hidden">
             <div class="flex-1 relative w-full bg-gray-800">
               <div v-if="props.hero" class="absolute inset-0 overflow-hidden">
-                <img :src="STRAPI_URL + props.hero.image.url" />
+                <img :src="STRAPI_URL + props.hero.image.url" class="object-cover object-center" />
               </div>
               <div class="absolute inset-0 bg-gray-900 opacity-50" />
             </div>

@@ -1,34 +1,32 @@
 <script setup lang="ts">
-import { finalize, take } from 'rxjs';
+import { take, map } from 'rxjs';
 import { ref$ } from '~/logic/observable-to-ref';
 import { fetchProductBySlug, ProductModel } from '~/service/products';
+import { Head } from '@vueuse/head'
 
 const strapiUrl = import.meta.env.VITE_STRAPI_SERVER
+const currencySymbol = "تومان"
 const props = defineProps<{ slug: string }>()
 let product = ref$(fetchProductBySlug(props.slug).pipe(
   take(1),
-  finalize((v: any) => {
-    useHead({
-      meta: [
-        {
-          name: v.seo.metaTitle,
-          description: v.seo.metaDescription
-        }
-      ]
-    })
-  })
+  map(p => ({...p, price: p.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " " + currencySymbol})),
 ), {} as ProductModel)
+
 
 </script>
 
 <template>
-  <div class="bg-white">
+<Head>
+  <title>{{product.title}}</title>
+  <meta v-for="meta of product.seo" :name="meta.metaTitle" :content="meta.metaDescription">
+</Head>
+  <div>
     <div class="mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
       <!-- Product -->
       <div class="lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
         <!-- Product image -->
         <div class="lg:row-end-1 lg:col-span-4">
-          <div class="aspect-w-4 aspect-h-3 rounded-lg bg-gray-100 overflow-hidden">
+          <div class="aspect-w-4 aspect-h-3 rounded-lg bg-gray-100 dark:bg-gray-900 overflow-hidden">
             <img
               v-if="product.image"
               :src="strapiUrl + product.image.url"
@@ -45,7 +43,7 @@ let product = ref$(fetchProductBySlug(props.slug).pipe(
           <div class="flex flex-col-reverse">
             <div class="mt-4">
               <h1
-                class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl"
+                class="text-2xl font-extrabold tracking-tight  sm:text-3xl"
               >{{ product.title }}</h1>
 
               <!-- <h2 id="information-heading" class="sr-only">Product information</h2>
@@ -64,13 +62,13 @@ let product = ref$(fetchProductBySlug(props.slug).pipe(
             </div>-->
           </div>
 
-          <p class="text-gray-500 mt-6">{{ product.description }}</p>
+          <p class="text-gray-500 dark:text-light-500 mt-6">{{ product.description }}</p>
 
           <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4">
             <button
               type="button"
-              class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
-            >{{ product.price }} ریال</button>
+              class="w-full bg-green-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+            >{{ product.price }}</button>
             <!-- <button type="button" class="w-full bg-indigo-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Preview</button> -->
           </div>
 
@@ -81,7 +79,7 @@ let product = ref$(fetchProductBySlug(props.slug).pipe(
                 <li
                   v-for="highlight in product.highlights"
                   :key="highlight.title"
-                >{{ highlight.title }}</li>
+                >{{ highlight.title }}: {{highlight.options}}</li>
               </ul>
             </div>
           </div>

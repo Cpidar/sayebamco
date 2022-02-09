@@ -136,14 +136,14 @@ const open = ref(false)
             </div>
           </div>
 
-          <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+          <!-- <div class="border-t border-gray-200 py-6 px-4 space-y-6">
             <div class="flow-root">
               <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Create an account</a>
             </div>
             <div class="flow-root">
               <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Sign in</a>
             </div>
-          </div>
+          </div>-->
         </div>
       </TransitionChild>
     </Dialog>
@@ -162,19 +162,20 @@ const open = ref(false)
             <div class="hidden lg:flex-1 lg:flex lg:items-center">
               <a href="/">
                 <span class="sr-only">Workflow</span>
-                <img :src="logo"  class="h-12 w-auto my-4"/>
+                <img :src="logo" class="h-12 w-auto my-4" />
               </a>
             </div>
 
             <div class="hidden h-full lg:flex">
               <!-- Flyout menus -->
               <div class="h-full flex justify-center">
-                <a
+                <span
                   v-for="page in navigation.pages"
                   :key="page.name"
-                  :href="page.href"
                   class="rtl:mr-8 ltr:ml-8 flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
-                >{{ page.name }}</a>
+                >
+                  <router-link :to="page.href">{{ page.name }}</router-link>
+                </span>
               </div>
             </div>
 
@@ -190,30 +191,39 @@ const open = ref(false)
               </button>
 
               <!-- Search -->
-              <a href="#" class="ltr:ml-2 rtl:mr-2 p-2 text-gray-400 hover:text-gray-500">
+              <!-- <a href="#" class="ltr:ml-2 rtl:mr-2 p-2 text-gray-400 hover:text-gray-500">
                 <span class="sr-only">Search</span>
                 <SearchIcon class="w-6 h-6" aria-hidden="true" />
-              </a>
+              </a>-->
             </div>
 
             <!-- Logo (lg-) -->
-            <a href="#" class="lg:hidden">
+            <a href="/" class="lg:hidden">
               <span class="sr-only">Workflow</span>
-              <img
-                src="https://tailwindui.com/img/logos/workflow-mark.svg?color=green&shade=600"
-                alt
-                class="h-8 w-auto"
-              />
+              <img :src="logo" class="h-12 w-auto my-4" />
             </a>
 
-            <div class="flex-1 flex items-center justify-end">
-              <button
+            <div class="lg:hidden flex-1 flex items-center justify-end">
+              <a
                 type="button"
                 class="inline-flex items-center px-3.5 py-2 border border-transparent text-sm leading-4 font-medium rounded-full shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                href="tel:09393220138"
               >
-              <span style="font-family: 'Iransans-bold' !important;">0138 222 (0913) - 2308 222 (0913)</span>
-              <IconPhone class="w-10 h-6" />
-              </button>
+                <IconPhone class="w-10 h-6" />
+              </a>
+            </div>
+
+            <div class="hidden lg:flex flex-1 items-center justify-end">
+              <a
+                type="button"
+                class="inline-flex items-center px-3.5 py-2 border border-transparent text-sm leading-4 font-medium rounded-full shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                href="tel:09393220138"
+              >
+                <span
+                  style="font-family: 'Iransans-bold' !important;"
+                >0138 322 (0939)</span>
+                <IconPhone class="w-10 h-6" />
+              </a>
             </div>
           </div>
         </div>

@@ -168,7 +168,7 @@
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <span class="ml-3">0138 222 (0913)</span>
+                <span class="ml-3">0138 322 (0913)</span>
               </dd>
                             <dd class="flex text-base text-teal-50">
                 <svg
@@ -186,7 +186,25 @@
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <span class="ml-3">2308 222 (0913)</span>
+                <span class="ml-3">2308 322 (0913)</span>
+              </dd>
+              <dd class="flex text-base text-teal-50">
+                <svg
+                  class="flex-shrink-0 w-6 h-6 text-teal-200"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                <span class="ml-3">0138 322 (0939)</span>
               </dd>
               <dt>
                 <span class="sr-only">ایمیل</span>
@@ -210,7 +228,7 @@
                 <span class="ml-3">support@sayebamco.com</span>
               </dd>
             </dl>
-            <ul class="mt-8 flex space-x-12" role="list">
+            <!-- <ul class="mt-8 flex space-x-12" role="list">
               <li>
                 <a class="text-teal-200 hover:text-teal-100" href="#">
                   <span class="sr-only">Facebook</span>
@@ -268,7 +286,7 @@
                   </svg>
                 </a>
               </li>
-            </ul>
+            </ul> -->
           </div>
 
           <!-- Contact form -->

@@ -50,7 +50,7 @@ server.get('*', async (request, response) => {
     // Anything passed here will be available in the main hook
     request,
     response,
-    // initialState: { ... } // <- This would also be available
+    initialState: { } // <- This would also be available
   })
 
   response.writeHead(status || 200, statusText || headers, headers)

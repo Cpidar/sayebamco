@@ -3,6 +3,7 @@ import { take, tap } from 'rxjs';
 import { ref$ } from '~/logic/observable-to-ref';
 import { Article, fetchArticleBySlug, STRAPI_URL } from '~/service/products';
 import MarkdownIt from '../../components/markdown-it';
+import { Head } from '@vueuse/head'
 
 const selectedImage = ref('')
 const props = defineProps<{ slug: string }>()
@@ -10,13 +11,6 @@ const article = ref$(fetchArticleBySlug(props.slug).pipe(
   take(1),
   tap(v => {
     selectedImage.value = STRAPI_URL + v.image[0].url
-    // console.log(v)
-    // useHead({
-    //   meta: v.seo.map(s => ({
-    //     name: s.metaTitle,
-    //     description: s.metaDescription
-    //   }))
-    // })
   })), {} as Article)
 
 const selectImage = (image: any) => {
@@ -27,12 +21,19 @@ const selectImage = (image: any) => {
 </script>
 
 <template>
+<Head>
+  <title>{{article.title}}</title>
+  <meta v-for="meta of article.seo" :name="meta.metaTitle" :content="meta.metaDescription">
+</Head>
   <div class="bg-white">
     <div class="max-w-2xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:max-w-7xl lg:px-8">
       <div class="grid items-start grid-cols-1 gap-y-16 gap-x-8 lg:grid-cols-2">
         <div>
           <div class="border-b border-gray-200 pb-10">
-            <h2 class="font-medium text-gray-500" v-if="article.category">{{ article.category.name }}</h2>
+            <h2
+              class="font-medium text-gray-500"
+              v-if="article.category"
+            >{{ article.category.name }}</h2>
             <p
               class="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
             >{{ article.title }}</p>

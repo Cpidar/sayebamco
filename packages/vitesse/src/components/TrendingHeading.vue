@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ProductModel, STRAPI_URL } from '~/service/products';
+import { ProductModel } from '~/service/products';
 
 const { t } = useI18n()
 const props = defineProps<{ products: ProductModel[] }>()
@@ -18,47 +18,32 @@ const props = defineProps<{ products: ProductModel[] }>()
       <div class="md:flex md:items-center md:justify-between">
         <h2
           id="favorites-heading"
-          class="text-2xl font-extrabold tracking-tight text-gray-900"
+          class="my-10 text-2xl font-extrabold tracking-tight text-gray-900"
         >{{t('featured-products.titel')}}</h2>
-        <a
+        <router-link to="/products">
+        <sapn
           href="#"
           class="hidden text-sm font-medium text-indigo-600 hover:text-indigo-500 md:block"
         >
           {{t('featured-products.see-more')}}
-          <span aria-hidden="true">&rarr;</span>
-        </a>
+          <span aria-hidden="true">&larr;</span>
+        </sapn>
+        </router-link>
       </div>
 
       <div
-        class="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-0 lg:gap-x-8"
+        class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8"
       >
-        <div v-for="product in props.products" :key="product.id" class="group relative">
-          <div
-            class="w-full h-56 rounded-md overflow-hidden group-hover:opacity-75 lg:h-72 xl:h-80"
-          >
-            <img
-              v-if="product.image"
-              :src="STRAPI_URL + product.image.url"
-              :alt="product.image.alternativeText"
-              class="w-full h-full object-center object-cover"
-            />
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">
-            <router-link :to="'/product/'+ product.slug">
-              <span class="absolute inset-0" />
-              {{ product.title }}
-            </router-link>
-          </h3>
-          <p class="mt-1 text-sm text-gray-500">{{ product.categories[0].name }}</p>
-          <p class="mt-1 text-sm font-medium text-gray-900">{{ product.price }}</p>
-        </div>
+        <product-card v-for="product of props.products" :product="product"></product-card>
       </div>
 
       <div class="mt-8 text-sm md:hidden">
-        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-          Shop the collection
-          <span aria-hidden="true">&rarr;</span>
-        </a>
+        <router-link to="/products">
+        <span href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+          {{t('featured-products.see-more')}}
+          <span aria-hidden="true">&larr;</span>
+        </span>
+        </router-link>
       </div>
     </div>
   </section>

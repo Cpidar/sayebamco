@@ -36,9 +36,9 @@ const items = [
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base">{{props.data.description}}</p>
     </div>
     <div class="flex flex-wrap -m-4 text-center">
-      <div v-for="item of props.data ? props.data.items : items" class="p-4 md:w-1/4 sm:w-1/2 w-full">
+      <div v-for="item of props.data ? props.data.items : items" class="p-4 md:w-1/4 sm:w-1/2 w-1/2">
         <div class="px-4 py-6 rounded-lg">
-          <img :src="STRAPI_URL + item.icon.url" />
+          <img class="inline" :src="STRAPI_URL + item.icon.url" />
           <h2 class="title-font font-medium text-3xl text-gray-900">{{item.count}}</h2>
           <p class="leading-relaxed">{{item.label}}</p>
         </div>

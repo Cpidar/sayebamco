@@ -7,7 +7,7 @@ import Logo from '../assets/images/logo.png'
 
 const { t } = useI18n()
 const address = "اصفهان، دهاقان، ناحیه صنعتی گلشن"
-const phones = ['0138 222 (0913)', '2308 222 (0913)']
+const phones = ['0138 322 (0913)', '2308 322 (0913)']
 
 </script>
 
@@ -62,9 +62,20 @@ const phones = ['0138 222 (0913)', '2308 222 (0913)']
               </div>
             </div>
             <div class="w-full lg:w-8/12 px-4">
-              <iframe
+              <!-- <iframe
                 src="https://balad.ir/embed?p=3JwGApkIFVRFNs"
                 title="مشاهده «خیابان گلخانه سازان ایران گلشن» روی نقشه بلد"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                style="border:0;"
+                allowfullscreen
+                aria-hidden="false"
+                tabindex="0"
+              ></iframe>-->
+              <iframe
+                src="https://balad.ir/embed?p=3yr9acp5tmq8RD"
+                title="مشاهده «شرکت سایه بام سبز زاینده رود» روی نقشه بلد"
                 width="100%"
                 height="100%"
                 frameborder="0"

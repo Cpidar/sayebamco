@@ -18,6 +18,11 @@ export default defineConfig({
   ],
   theme: {
     extend: {
+      colors: {
+          'green-dark01': '#131d17',
+          'green-primary': '#5e9f46',
+          'green-dark02': '#1e2622',
+      },
       typography: {
         DEFAULT: {
           css: {

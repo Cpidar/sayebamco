@@ -1,5 +1,5 @@
 import { mande, MandeInstance } from 'mande'
-import { Observable, pluck, shareReplay, Subscriber, switchMap } from 'rxjs'
+import { BehaviorSubject, combineLatest, combineLatestAll, Observable, pluck, shareReplay, Subscriber, switchMap } from 'rxjs'
 // import { acceptHMRUpdate, defineStore } from "pinia";
 
 
@@ -28,16 +28,17 @@ interface Seo {
     shareImage: { url: string, alternativeText: string };
 }
 
-interface Global {
+export interface Global {
     id: string;
     siteName: string;
     favicon: { url: string, alternativeText: string };
-    defaultSeo: Seo
+    defaultSeo: Seo;
 }
 
 export interface Category {
     id: string;
     name: string;
+    articles: Article[];
 }
 
 export interface ProductModel {
@@ -50,7 +51,7 @@ export interface ProductModel {
     categories: Category[];
     highlights: { title: string; options: string; required: boolean }[]
     featured: boolean;
-    seo: Seo;
+    seo: Seo[];
 }
 
 export interface Article {
@@ -65,7 +66,18 @@ export interface Article {
     seo: Seo[];
 }
 
-export const fetchHomePageInfo = api$.pipe(
+export interface State {
+    trendingProducts: ProductModel[];
+    recentProjects: Article[];
+    homePage: {
+        hero: any;
+        seo: Seo[];
+        Statistics: any;
+        perks: any
+    }
+}
+
+export const fetchHomePageInfo: Observable<any> = api$.pipe(
     switchMap(api => api.get('homepage'))
 )
 
@@ -105,10 +117,30 @@ export const fetchArticleBySlug = (slug: string) => api$.pipe(
     switchMap(api => api.get<Article>(`articles/${slug}`))
 )
 
-export const fetchProjects = (start: number, limit: number) => {
+export const fetchProjects = (start: number, limit: number): Observable<Article[]> => {
     const query = { _sort: 'id:DESC', _limit: limit, _start: start }
     return api$.pipe(
-        switchMap(api => api.get('categories/project', { query })),
+        switchMap(api => (api.get<Category>('categories/project', { query }))),
         pluck('articles')
     )
 }
+
+const initialState: State = {
+    trendingProducts: [],
+    recentProjects: [],
+    homePage: {
+        hero: {},
+        seo: [],
+        Statistics: {},
+        perks: {}
+    }
+}
+
+const state = new BehaviorSubject(initialState as State)
+
+// const getter = combineLatestAll([
+//     fetchFeaturedArticles(3),
+//     fetchHomePageInfo,
+//     fetchProjects(0, 3)]).pipe(
+//         shareReplay()
+//         )
